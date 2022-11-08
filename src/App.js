@@ -24,7 +24,7 @@ function App() {
     setState(open);
   };
    const list = () => (
-     <Box className="drawer" sx={{ width: 350 }} role="presentation">
+     <Box className="drawer" sx={{ width: 450 ,height: 350}} role="presentation">
        <div className="drawer_main">
          <div className="manage_access">
          <h5>SOP Access</h5>
@@ -87,10 +87,9 @@ function App() {
                   aria-controls="panel1a-content"
                   id="panel1a-header"
                 >
-                  {" "}
                   <div className="jss2">
                     <Typography>Marketing</Typography>
-                    <MoreVertIcon />
+                    <MoreVertIcon className='verticon'/>
                   </div>
                 </AccordionSummary>
                 <AccordionDetails>

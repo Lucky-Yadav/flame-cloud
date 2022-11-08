@@ -37,3 +37,10 @@ h5 {
   display: flex;
   gap: 20px;
 }
+.button {
+  gap: 4px;
+}
+.verticon {
+  align-self: flex-end;
+  margin-left: 290%;
+}
