@@ -72,12 +72,6 @@ function App() {
           </div>
           <div className="list">
             <div>
-              <Accordion>
-               
-              </Accordion>
-              <Accordion>
-               
-              </Accordion>
               <Accordion disabled>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
