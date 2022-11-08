@@ -13,6 +13,8 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Button from "@mui/material/Button";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import AddIcon from "@mui/icons-material/Add";
+import PeopleIcon from "@mui/icons-material/People";
 
 function App() {
   
@@ -66,9 +68,11 @@ function App() {
             <div className="lefta">
               <h5>Action Plans</h5>
             </div>
-            <div className="righta">             
-              <Button variant="outlined">Manage Access</Button>
-              <Button variant="contained">New Plan</Button>
+            <div className="righta">
+              <Button variant="outlined" className='button butn1'> <PeopleIcon/> Manage Access</Button>
+              <Button className='button butn2' variant="contained">
+                <AddIcon /> New Plan
+              </Button>
             </div>
           </div>
           <div className="list">
@@ -82,11 +86,12 @@ function App() {
                   }
                   aria-controls="panel1a-content"
                   id="panel1a-header"
-                > <div className="jss2">
+                >
+                  {" "}
+                  <div className="jss2">
                     <Typography>Marketing</Typography>
-                  <MoreVertIcon />
-                </div>
-                  
+                    <MoreVertIcon />
+                  </div>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Accordion>
