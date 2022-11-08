@@ -12,6 +12,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Button from "@mui/material/Button";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 function App() {
   
@@ -72,14 +73,55 @@ function App() {
           </div>
           <div className="list">
             <div>
-              <Accordion disabled>
+              <Accordion>
+                <AccordionSummary
+                  expandIcon={
+                    <>
+                      <ExpandMoreIcon />
+                    </>
+                  }
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                > <div className="jss2">
+                    <Typography>Marketing</Typography>
+                  <MoreVertIcon />
+                </div>
+                  
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
+                    >
+                      <Typography>MoreVertIcon</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails></AccordionDetails>
+                  </Accordion>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
+                    >
+                      <Typography>Marketing</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails></AccordionDetails>
+                  </Accordion>
+                </AccordionDetails>
+              </Accordion>
+              <Accordion>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel3a-content"
-                  id="panel3a-header"
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
                 >
-                  <Typography>Disabled Accordion</Typography>
+                  <Typography>Wordpress</Typography>
                 </AccordionSummary>
+                <AccordionDetails>
+                  <Typography></Typography>
+                </AccordionDetails>
               </Accordion>
             </div>
           </div>
