@@ -1,24 +1,66 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <AppBar position="static">
+      <Container maxWidth="xl">
+        <Drawer
+          anchor={"right"}
+          open={state1}
+          onClose={() => toggleDrawer1(false)}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          {list1()}
+        </Drawer>
+        <Drawer
+          anchor={"right"}
+          open={state}
+          onClose={() => toggleDrawer(false)}
+        >
+          {list()}
+        </Drawer>
+        <Toolbar disableGutters className="navbar">
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            <Link to={"/support"}>
+              <div>Help</div>
+            </Link>
+            {/* <Link to={"/"}>Private Route</Link> */}
+          </Box>
+
+          {token ? (
+            <>
+              {/* {()=> toggleDrawer(false)} */}
+              <Box
+                onClick={handlelogout}
+                style={{ cursor: "pointer" }}
+                sx={{ flexGrow: 0 }}
+              >
+                logout
+              </Box>
+            </>
+          ) : (
+            // <Link to="/">
+            <>
+              <Box
+                style={{ cursor: "pointer" }}
+                sx={{ flexGrow: 0 }}
+                onClick={() => toggleDrawer1(true)}
+              >
+                Login
+              </Box>
+              {/* <Link to={"/signup"}> */}
+              <Box
+                className="signup"
+                style={{ cursor: "pointer" }}
+                sx={{ flexGrow: 0 }}
+                onClick={() => toggleDrawer(true)}
+              >
+                signup
+              </Box>
+            </>
+          )}
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
 }
 
