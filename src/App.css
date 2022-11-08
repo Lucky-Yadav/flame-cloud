@@ -35,4 +35,5 @@ h5 {
 }
 .righta {
   display: flex;
+  gap: 20px;
 }
