@@ -66,9 +66,9 @@ function App() {
             <div className="lefta">
               <h5>Action Plans</h5>
             </div>
-            <div className="righta">
-              <Button variant="contained">Contained</Button>
-              <Button variant="outlined">Outlined</Button>
+            <div className="righta">             
+              <Button variant="outlined">Manage Access</Button>
+              <Button variant="contained">New Plan</Button>
             </div>
           </div>
           <div className="list">
