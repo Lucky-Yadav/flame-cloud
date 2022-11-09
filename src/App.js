@@ -35,7 +35,12 @@ function App() {
      </Box>
    );
   
+  const [planlist, setplanlist] = useState(["Marketing"])
+  
+  const actionplans = [...planlist ]
+  
   return (
+    
     <>
       <AppBar position="static">
         <Container maxWidth="xl">
@@ -80,6 +85,7 @@ function App() {
             </div>
           </div>
           <div className="list">
+            {planlist.map()}
             <div>
               <Accordion>
                 <AccordionSummary
