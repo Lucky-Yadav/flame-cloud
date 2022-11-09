@@ -15,6 +15,7 @@ import Button from "@mui/material/Button";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import AddIcon from "@mui/icons-material/Add";
 import PeopleIcon from "@mui/icons-material/People";
+import Manage from './components/Manage';
 
 function App() {
   
@@ -62,6 +63,9 @@ function App() {
         </Container>
       </AppBar>
       <div className="body">
+        <div className="popup1">
+          <Manage/>
+        </div>
         <div className="jss1">
           <p>SOP</p>
           <div className="tab">
