@@ -69,8 +69,8 @@ function App() {
         variant="outlined"
       />
       <div className="buttons">
-        <Button variant="outlined" onClick={() =>setopenplan(false)}>Cancel</Button>
-        <Button variant="contained" onClick={() => createplan()}>
+        <Button variant="outlined" className='button1' onClick={() =>setopenplan(false)}>Cancel</Button>
+        <Button variant="contained" className='button2' onClick={() => createplan()}>
           create
         </Button>
       </div>
@@ -95,11 +95,11 @@ function App() {
               <h5>Action Plans</h5>
             </div>
             <div className="righta">
-              <Button variant="outlined" onClick={() => setopenmanage(true)} className="button butn1">
+              <Button variant="outlined" onClick={() => setopenmanage(true)} className="button button1">
                 <PeopleIcon /> Manage Access
               </Button>
               <Button
-                className="button butn2"
+                className="button button2"
                 variant="contained"
                 onClick={() => setopenplan(true)}
               >
