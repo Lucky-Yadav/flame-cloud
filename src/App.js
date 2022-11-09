@@ -1,5 +1,5 @@
 import './App.css';
-import * as React from "react";
+import React, { useContext } from "react";
 import { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -17,10 +17,11 @@ import AddIcon from "@mui/icons-material/Add";
 import PeopleIcon from "@mui/icons-material/People";
 import Manage from './components/Manage';
 import TextField from "@mui/material/TextField";
+import { AuthContext } from './context/StateManage';
 
 function App() {
+  const {openmanage,setopenmanage} = useContext(AuthContext)
   const [openplan, setopenplan] = useState(false)
-  const [openmanage, setopenmanage] = useState(false)
   const [state, setState] = React.useState(false);
   const [newplanname, setnewplanname] = useState("")
   const [key, setkey] = useState(2)

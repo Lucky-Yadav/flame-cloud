@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Select from './Select';
 import { useState } from 'react';
 import { Button } from '@mui/material';
+import { AuthContext } from '../context/StateManage';
 
 const Manage = () => {
-  const [openmanage, setopenmanage] = useState(true)
+  
+  const { openmanage, setopenmanage } = useContext(AuthContext);
+
   return (
     <div >
       <div
