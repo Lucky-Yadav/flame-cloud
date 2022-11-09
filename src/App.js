@@ -95,11 +95,11 @@ function App() {
               <h5>Action Plans</h5>
             </div>
             <div className="righta">
-              <Button variant="outlined" onClick={() => setopenmanage(true)} className="button button1">
+              <Button variant="outlined" onClick={() => setopenmanage(true)} className="button butn1">
                 <PeopleIcon /> Manage Access
               </Button>
               <Button
-                className="button button2"
+                className="button butn2"
                 variant="contained"
                 onClick={() => setopenplan(true)}
               >
