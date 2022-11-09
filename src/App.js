@@ -35,12 +35,17 @@ function App() {
      </Box>
    );
   
-  const [planlist, setplanlist] = useState(["Marketing"])
+  const [planlist, setplanlist] = useState([{
+    category: "Marketing",
+    key:1,
+  }, {
+    category: "wordpress",
+    key:2,
+    }])
   
   const actionplans = [...planlist ]
   
   return (
-    
     <>
       <AppBar position="static">
         <Container maxWidth="xl">
@@ -69,7 +74,7 @@ function App() {
       </AppBar>
       <div className="body">
         <div className="popup1">
-          <Manage/>
+          <Manage />
         </div>
         <div className="jss1">
           <p>SOP</p>
@@ -78,66 +83,59 @@ function App() {
               <h5>Action Plans</h5>
             </div>
             <div className="righta">
-              <Button variant="outlined" className='button butn1'> <PeopleIcon/> Manage Access</Button>
-              <Button className='button butn2' variant="contained">
+              <Button variant="outlined" className="button butn1">
+                {" "}
+                <PeopleIcon /> Manage Access
+              </Button>
+              <Button className="button butn2" variant="contained">
                 <AddIcon /> New Plan
               </Button>
             </div>
           </div>
           <div className="list">
-            {planlist.map()}
-            <div>
-              <Accordion>
-                <AccordionSummary
-                  expandIcon={
-                    <>
-                      <ExpandMoreIcon />
-                    </>
-                  }
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
-                >
-                  <div className="jss2">
-                    <Typography>Marketing</Typography>
-                    <MoreVertIcon className='verticon'/>
-                  </div>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Accordion>
-                    <AccordionSummary
-                      expandIcon={<ExpandMoreIcon />}
-                      aria-controls="panel1a-content"
-                      id="panel1a-header"
-                    >
-                      <Typography>MoreVertIcon</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails></AccordionDetails>
-                  </Accordion>
-                  <Accordion>
-                    <AccordionSummary
-                      expandIcon={<ExpandMoreIcon />}
-                      aria-controls="panel1a-content"
-                      id="panel1a-header"
-                    >
+            {planlist?.map((item) => (
+              <div key={item.key}>
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={
+                      <>
+                        <ExpandMoreIcon />
+                      </>
+                    }
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                  >
+                    <div className="jss2">
                       <Typography>Marketing</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails></AccordionDetails>
-                  </Accordion>
-                </AccordionDetails>
-              </Accordion>
-              <Accordion>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
-                >
-                  <Typography>Wordpress</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography></Typography>
-                </AccordionDetails>
-              </Accordion>
-            </div>
+                      <MoreVertIcon className="verticon" />
+                    </div>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <Accordion>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                      >
+                        <Typography>MoreVertIcon</Typography>
+                      </AccordionSummary>
+                      <AccordionDetails></AccordionDetails>
+                    </Accordion>
+                    <Accordion>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                      >
+                      <Typography>{item.category}</Typography>
+                      </AccordionSummary>
+                      <AccordionDetails></AccordionDetails>
+                    </Accordion>
+                  </AccordionDetails>
+                </Accordion>
+              </div>
+            ))}
+            
           </div>
         </div>
       </div>
