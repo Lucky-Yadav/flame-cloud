@@ -16,24 +16,18 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import AddIcon from "@mui/icons-material/Add";
 import PeopleIcon from "@mui/icons-material/People";
 import Manage from './components/Manage';
+import TextField from "@mui/material/TextField";
 
 function App() {
   
   const [state, setState] = React.useState(false);
+  const [newplanname, setnewplanname] = useState("")
+  const [key, setkey] = useState(2)
   const toggleDrawer = (open) => {
     console.log(2);
     setState(open);
   };
-   const list = () => (
-     <Box className="drawer" sx={{ width: 450 ,height: 350}} role="presentation">
-       <div className="drawer_main">
-         <div className="manage_access">
-         <h5>SOP Access</h5>
-       </div>
-       </div>
-       
-     </Box>
-   );
+ 
   
   const [planlist, setplanlist] = useState([{
     category: "Marketing",
@@ -42,38 +36,38 @@ function App() {
     category: "wordpress",
     key:2,
     }])
-  
-  const actionplans = [...planlist ]
+  console.log(planlist)
+  // const actionplans = [...planlist]
+  const createplan = () => {
+    const newlist = {
+      category: newplanname,
+      key: key + 1,
+    };
+
+    planlist.push(newlist)
+    setState({...planlist})
+  };
+  console.log(planlist);
+  const createplans = () => (
+    <div className="newplan">
+      <h4>Plan Name</h4>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus,
+        sed. Odit at suscipit cumque fugiatur consequuntur id!
+      </p>
+
+      <TextField id="outlined-basic" onChange={(e) => setnewplanname(e.target.value)} label="Name Your Plan" variant="outlined" />
+    </div>
+  );
   
   return (
     <>
-      <AppBar position="static">
-        <Container maxWidth="xl">
-          <Drawer
-            anchor={"right"}
-            open={state}
-            onClose={() => toggleDrawer(false)}
-          >
-            {list()}
-          </Drawer>
-          <Toolbar disableGutters className="navbar">
-            <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-              right
-            </Box>
-
-            <Box
-              className="signup"
-              style={{ cursor: "pointer" }}
-              sx={{ flexGrow: 0 }}
-              onClick={() => toggleDrawer(true)}
-            >
-              signup
-            </Box>
-          </Toolbar>
-        </Container>
-      </AppBar>
       <div className="body">
         <div className="popup1">
+          <div className="createnewplan">
+            {createplans()}
+          </div>
+          
           <Manage />
         </div>
         <div className="jss1">
@@ -87,11 +81,12 @@ function App() {
                 {" "}
                 <PeopleIcon /> Manage Access
               </Button>
-              <Button className="button butn2" variant="contained">
+              <Button className="button butn2" variant="contained" onClick={()=> createplan()}> 
                 <AddIcon /> New Plan
               </Button>
             </div>
           </div>
+           
           <div className="list">
             {planlist?.map((item) => (
               <div key={item.key}>
@@ -106,7 +101,7 @@ function App() {
                     id="panel1a-header"
                   >
                     <div className="jss2">
-                      <Typography>Marketing</Typography>
+                      <Typography>{item.category}</Typography>
                       <MoreVertIcon className="verticon" />
                     </div>
                   </AccordionSummary>

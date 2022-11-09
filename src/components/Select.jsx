@@ -37,7 +37,7 @@ const Select = () => {
         }
         style={{ width: 500 }}
         renderInput={(params) => (
-          <TextField {...params} label="Fixed tag" placeholder="Favorites" />
+          <TextField {...params} label="TEAMMATES" placeholder="Add Teammates" />
         )}
       />
     </div>
