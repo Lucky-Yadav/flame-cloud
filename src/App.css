@@ -62,3 +62,6 @@ h5 {
 .listitem {
   margin-bottom: 15px;
 }
+.popup1 {
+  display: flex;
+}
