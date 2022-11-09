@@ -19,7 +19,8 @@ import Manage from './components/Manage';
 import TextField from "@mui/material/TextField";
 
 function App() {
-  
+  const [openplan, setopenplan] = useState(false)
+  const [openmanage, setopenmanage] = useState(false)
   const [state, setState] = React.useState(false);
   const [newplanname, setnewplanname] = useState("")
   const [key, setkey] = useState(2)
@@ -42,6 +43,10 @@ function App() {
     const newlist = {
       category: newplanname,
       key: key + 1,
+      child : {
+      category: newplanname,
+      key: key + 1,
+    }
     };
 
     planlist.push(newlist)
@@ -56,7 +61,18 @@ function App() {
         sed. Odit at suscipit cumque fugiatur consequuntur id!
       </p>
 
-      <TextField id="outlined-basic" onChange={(e) => setnewplanname(e.target.value)} label="Name Your Plan" variant="outlined" />
+      <TextField
+        id="outlined-basic"
+        onChange={(e) => setnewplanname(e.target.value)}
+        label="Name Your Plan"
+        variant="outlined"
+      />
+      <div className="buttons">
+        <Button variant="outlined" onClick={() =>setopenplan(false)}>Cancel</Button>
+        <Button variant="contained" onClick={() => createplan()}>
+          create
+        </Button>
+      </div>
     </div>
   );
   
@@ -64,11 +80,12 @@ function App() {
     <>
       <div className="body">
         <div className="popup1">
-          <div className="createnewplan">
+          <div className={`createnewplan ${openplan == true ? "" : "hidden"} `}>
             {createplans()}
           </div>
-          
-          <Manage />
+          <div className={` manage ${openmanage == true ? "" : "hidden"} `}>
+            <Manage />
+          </div>
         </div>
         <div className="jss1">
           <p>SOP</p>
@@ -77,19 +94,22 @@ function App() {
               <h5>Action Plans</h5>
             </div>
             <div className="righta">
-              <Button variant="outlined" className="button butn1">
-                {" "}
+              <Button variant="outlined" onClick={() => setopenmanage(true)} className="button butn1">
                 <PeopleIcon /> Manage Access
               </Button>
-              <Button className="button butn2" variant="contained" onClick={()=> createplan()}> 
+              <Button
+                className="button butn2"
+                variant="contained"
+                onClick={() => setopenplan(true)}
+              >
                 <AddIcon /> New Plan
               </Button>
             </div>
           </div>
-           
+
           <div className="list">
             {planlist?.map((item) => (
-              <div key={item.key}>
+              <div className="listitem" key={item.key}>
                 <Accordion>
                   <AccordionSummary
                     expandIcon={
@@ -122,7 +142,7 @@ function App() {
                         aria-controls="panel1a-content"
                         id="panel1a-header"
                       >
-                      <Typography>{item.category}</Typography>
+                        <Typography>{item.category}</Typography>
                       </AccordionSummary>
                       <AccordionDetails></AccordionDetails>
                     </Accordion>
@@ -130,7 +150,6 @@ function App() {
                 </Accordion>
               </div>
             ))}
-            
           </div>
         </div>
       </div>
